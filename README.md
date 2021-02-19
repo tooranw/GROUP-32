@@ -43,3 +43,6 @@ Tips for file naming files and folders:
 * use dashes (not underscore) for word separation
 
 testing 123
+
+This is Jerry speaking:
+I am operating with the page main.html
