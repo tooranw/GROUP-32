@@ -34,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="main.html">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -58,7 +58,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="storelist.html">Find a Store</a>
+            <a class="nav-link" href="#" id="storeName">Find a Store</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Get Email Offers</a>
@@ -102,79 +102,10 @@
       Learn more about important COVID updates/operating hours.
     </a></div>
   <div class="container">
-    <h1 class="display-4" style="text-align: center;">Welcome to your private shopping mall!</h1>
+    <h1 class="display-4" style="text-align: center;">Our Cooperative Stores Are Here</h1>
+    <h2><span id="quote-goes-here"></span></h2>
   </div>
 
-
-  <div style="width: -50%; float:left">
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-      <option selected>Shop by Department</option>
-      <option value="1">Appliances</option>
-      <option value="2">Automotive & Tires</option>
-      <option value="3">Baby</option>
-      <option value="4">Clothing</option>
-      <option value="5">Computers</option>
-      <option value="6">Electronics</option>
-      <option value="7">Grocery</option>
-      <option value="8">Gift Cards</option>
-      <option value="9">Health & Beauty</option>
-      <option value="10">Home & Kitchen</option>
-      <option value="11">Home improvement</option>
-      <option value="12">Office Products</option>
-      <option value="13">Patio, BBQ & Garden</option>
-      <option value="14">Pet Supplies</option>
-      <option value="15">Sports & Fitness</option>
-      <option value="16">Toys & Books</option>
-    </select>
-
-  </div>
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic1.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic2.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic3.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic4.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic5.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic6.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic7.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic8.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic9.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-  </div>
 
 
   <nav class="navbar fixed-bottom navbar-light bg-light">
@@ -205,13 +136,15 @@
 
   <script>
     function readQuote() {
-      db.collection("Store").doc("name")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here").innerHTML = snap.data().message;
-        })
-    }
-    readQuote();
+            db.collection("Store").doc("name")
+                .onSnapshot(function (snap) {
+                    console.log(snap.data())
+                    document.getElementById("quote-goes-here").innerHTML = snap.data().Superstore;
+                })
+        }
+        readQuote();
+
+        
 
 
     function displayCities() {
