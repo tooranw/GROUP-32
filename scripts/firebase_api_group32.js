@@ -10,9 +10,9 @@ var firebaseConfig = {
     projectId: "march02demojerry",
     storageBucket: "march02demojerry.appspot.com",
     messagingSenderId: "184017772502",
-    appId: "1:184017772502:web:05e6eb3356c32bad8a0e77",
-    measurementId: "G-4Z41JGHQWK"
-};
+    appId: "1:184017772502:web:ed8a35889e528a808a0e77",
+    measurementId: "G-7RG9V9JLQ5"
+  };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
