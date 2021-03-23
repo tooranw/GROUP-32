@@ -136,10 +136,10 @@
 
   <script>
     function readQuote() {
-            db.collection("Store").doc("name")
+            db.collection("stores").doc("name")
                 .onSnapshot(function (snap) {
                     console.log(snap.data())
-                    document.getElementById("quote-goes-here").innerHTML = snap.data().Superstore;
+                    document.getElementById("quote-goes-here").innerHTML = snap.data().message;
                 })
         }
         readQuote();
