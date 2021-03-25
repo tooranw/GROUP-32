@@ -34,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="main.html">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -58,7 +58,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="storelist.html">Find a Store</a>
+            <a class="nav-link" href="storelist.html" id="storeName">Find a Store</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Get Email Offers</a>
@@ -73,7 +73,7 @@
             <a class="nav-link" href="#">Delivery Policy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="return policy.html">Return Policy</a>
+            <a class="nav-link" href="#">Return Policy</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -87,7 +87,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.html">My Account</a>
+            <a class="nav-link" href="#">My Account</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -102,79 +102,10 @@
       Learn more about important COVID updates/operating hours.
     </a></div>
   <div class="container">
-    <h1 class="display-4" style="text-align: center;">Welcome to your private shopping mall!</h1>
+    <h1 class="display-4" style="text-align: center;">Our Cooperative Stores Are Here</h1>
+    <h2><span id="quote-goes-here"></span></h2>
   </div>
 
-
-  <div style="width: -50%; float:left">
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-      <option selected>Shop by Department</option>
-      <option value="1">Appliances</option>
-      <option value="2">Automotive & Tires</option>
-      <option value="3">Baby</option>
-      <option value="4">Clothing</option>
-      <option value="5">Computers</option>
-      <option value="6">Electronics</option>
-      <option value="7">Grocery</option>
-      <option value="8">Gift Cards</option>
-      <option value="9">Health & Beauty</option>
-      <option value="10">Home & Kitchen</option>
-      <option value="11">Home improvement</option>
-      <option value="12">Office Products</option>
-      <option value="13">Patio, BBQ & Garden</option>
-      <option value="14">Pet Supplies</option>
-      <option value="15">Sports & Fitness</option>
-      <option value="16">Toys & Books</option>
-    </select>
-  </div>
-  
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic1.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic2.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic3.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic4.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic5.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic6.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic7.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic8.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="images/mainpage-pic9.png" class="card-img-top" alt="...">
-      </div>
-    </div>
-  </div>
 
 
   <nav class="navbar fixed-bottom navbar-light bg-light">
@@ -194,8 +125,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
 
   <!-- Link to the api keys for your firebase project -->
   <script src="scripts/firebase_api_group32.js"></script>
@@ -205,75 +135,17 @@
   <!--------------------------------------------------------------------->
   <script src="scripts/my_functions.js"></script>
 
-  <script>var ui = new firebaseui.auth.AuthUI(firebase.auth());</script>
 
   <script>
     function readQuote() {
-      db.collection("stores").doc("name")
+      db.collection("Store").doc("return")
         .onSnapshot(function (snap) {
           console.log(snap.data())
-          document.getElementById("quote-goes-here").innerHTML = snap.data().message;
+          document.getElementById("quote-goes-here").innerHTML = snap.data().policy;
         })
     }
     readQuote();
 
-    function sayHello() {
-    firebase.auth().onAuthStateChanged(function(somebody){
-        if(somebody) {
-
-            console.log(somebody.uid);
-
-
-            db.collection("users")
-            .doc(somebody.uid)
-            .get()
-            .then(function(doc){
-
-                console.log(doc.data().name);
-                var n = doc.data().name;
-
-                $("#name-goes-here").text(n);
-            })
-        }else {
-            // No user is signed in.
-        }
-    })
-}
-
-sayHello();
-
-
-    function displayCities() {
-      db.collection("cities").get()
-        .then(function (snap) {
-          snap.forEach(function (doc) {
-            var n = doc.data().name;
-            console.log(n);
-            var cityid = doc.data().code;
-            console.log(cityid);
-            document.getElementById(cityid).innerText = n;
-          })
-
-        })
-    }
-    displayCities();
-
-    function writeCities() {
-      var citiesRef = db.collection("cities");
-
-      citiesRef.add({
-        code: "YVR",
-        name: "Jerry lives in Richmond",
-      });
-      citiesRef.add({
-        code: "TOK",
-        name: "Tokyo",
-      });
-      citiesRef.add({
-        code: "BJ",
-        name: "Beijing",
-      });
-    }
   </script>
 
 
