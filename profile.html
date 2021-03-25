@@ -15,6 +15,12 @@
 
     <!-- Optional styles and scripts of your own -->
 
+    <style>
+        .backButton {
+            padding-left: 20px;
+        }
+    </style>
+
 
 </head>
 
@@ -51,26 +57,49 @@
             </div>
         </div>
     </nav>
+    <br>
+
+
+    <div>
+        <button type="button" class="btn btn-secondary btn-lg" class="backButton">Back</button></div>
 
     <div class="container">
         <h1 class="display-4">Profile</h1>
     </div>
 
+    <!-- This is just the template. Use the .get stuff to add
+    to the list from the database. Basically do <li>username: <get.name></li>-->
     <div class="container">
         <ul>
-            <li>Username: </li>
-            <li>First Name: Jerry</li>
-            <li>Last Name: Hu</li>
-
+            <li>Username: JohnDoe123</li>
+            <li>First Name: John</li>
+            <li>Middle Name: Jonathan</li>
+            <li>Last Name: Doe</li>
             <li>Purchase History: eveything</li>
             <li>Current Balance: $200</li>
 
         </ul>
     </div>
 
+    <div class="container">
+        <h1 class="display-4"> Hello, <span id="name-goes-here">CST</span> </h1>
+        <h1> You are now logged in. </h1>
+
+        <ul>
+            <li>Username: <span id="username-goes-here"></span></li>
+            <li>First Name: <span id="firstName-goes-here"></span></li>
+            <!-- <li>Middle Name: <span id="middleName-goes-here"></span></li> -->
+            <li>Last Name: <span id="lastName-goes-here"></span></li>
+            <li>Current Balance: $<span id="currentBalance-goes-here"></span></li>
+        </ul>
+
+    </div>
+
+
+
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Fixed bottom</a>
+            <a class="navbar-brand" href="#">Fixed bottom tl</a>
         </div>
     </nav>
 
@@ -79,7 +108,13 @@
     <!----------------------------------------------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-        </script>
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
