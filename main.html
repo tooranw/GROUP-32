@@ -87,7 +87,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My Account</a>
+            <a class="nav-link" href="profile.html">My Account</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -126,8 +126,8 @@
       <option value="15">Sports & Fitness</option>
       <option value="16">Toys & Books</option>
     </select>
-
   </div>
+  
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card h-100">
@@ -216,6 +216,31 @@
         })
     }
     readQuote();
+
+    function sayHello() {
+    firebase.auth().onAuthStateChanged(function(somebody){
+        if(somebody) {
+
+            console.log(somebody.uid);
+
+
+            db.collection("users")
+            .doc(somebody.uid)
+            .get()
+            .then(function(doc){
+
+                console.log(doc.data().name);
+                var n = doc.data().name;
+
+                $("#name-goes-here").text(n);
+            })
+        }else {
+            // No user is signed in.
+        }
+    })
+}
+
+sayHello();
 
 
     function displayCities() {

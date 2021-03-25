@@ -1,9 +1,9 @@
-
 function sayHello() {
     firebase.auth().onAuthStateChanged(function(somebody){
         if(somebody) {
 
             console.log(somebody.uid);
+            
             //this will sonsole log the current logged in user
             // uid -uS9qwFZNjHP5GFfwcFvXKWKycEG3
             
@@ -67,39 +67,39 @@ function getUsername() {
 
 getUsername();
 
-function getCurrentBalance() {
-    firebase.auth().onAuthStateChanged(function(somebody){
-        if(somebody) {
+// function getCurrentBalance() {
+//     firebase.auth().onAuthStateChanged(function(somebody){
+//         if(somebody) {
 
-            console.log(somebody.uid);
-            //this will sonsole log the current logged in user
-            // uid -uS9qwFZNjHP5GFfwcFvXKWKycEG3
+//             console.log(somebody.uid);
+//             //this will sonsole log the current logged in user
+//             // uid -uS9qwFZNjHP5GFfwcFvXKWKycEG3
             
 
-            //doc is a pointer to the user in firestore
+//             //doc is a pointer to the user in firestore
             
-            db.collection("users")
-            .doc(somebody.uid)
-            .get()
-            .then(function(doc){
+//             db.collection("users")
+//             .doc(somebody.uid)
+//             .get()
+//             .then(function(doc){
 
-                //this will also show in the console log
-                // ie seo dam mi 
-                console.log(doc.data().name);
-                var cB = doc.data().currentBalance;
+//                 //this will also show in the console log
+//                 // ie seo dam mi 
+//                 console.log(doc.data().name);
+//                 var cB = doc.data().currentBalance;
 
-                //jquery
-                //name of the id in main
-                //assigning the text to the id from n
-                $("#currentBalance-goes-here").text(cB);
-            })
-        }else {
-            // No user is signed in.
-        }
-    })
-}
+//                 //jquery
+//                 //name of the id in main
+//                 //assigning the text to the id from n
+//                 $("#currentBalance-goes-here").text(cB);
+//             })
+//         }else {
+//             // No user is signed in.
+//         }
+//     })
+// }
 
-getCurrentBalance();
+// getCurrentBalance();
 
 
 function citiesQuery(){

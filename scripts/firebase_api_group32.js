@@ -14,6 +14,8 @@ var firebaseConfig = {
     measurementId: "G-4Z41JGHQWK"
 };
 
+//usingJerry's database because the group32 database didnt work.
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
