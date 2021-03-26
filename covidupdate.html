@@ -58,7 +58,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" id="storeName">Find a Store</a>
+            <a class="nav-link" href="storelist.html" id="storeName">Find a Store</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Get Email Offers</a>
@@ -73,7 +73,7 @@
             <a class="nav-link" href="#">Delivery Policy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="return policy.html">Return Policy</a>
+            <a class="nav-link" href="#">Return Policy</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -98,34 +98,13 @@
     </div>
   </nav>
 
-  <div class="alert alert-danger" role="alert" style="text-align: center;"><a href="covidupdate.html">
+  <div class="alert alert-danger" role="alert" style="text-align: center;"><a href="">
       Learn more about important COVID updates/operating hours.
     </a></div>
-
-    
   <div class="container">
     <h1 class="display-4" style="text-align: center;">Our Cooperative Stores Are Here</h1>
-    <br>
-    <h2 style="text-align: center;"><span id="quote-goes-here1"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here2"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here3"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here4"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here5"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here6"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here7"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here8"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here9"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here10"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here11"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here12"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here13"></span></h2>
-    <h2 style="text-align: center;"><span id="quote-goes-here14"></span></h2>
+    <h2><span id="quote-goes-here"></span></h2>
   </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
 
 
 
@@ -158,131 +137,14 @@
 
 
   <script>
-    function readQuote1() {
-      db.collection("Store").doc("store")
+    function readQuote() {
+      db.collection("Store").doc("notice")
         .onSnapshot(function (snap) {
           console.log(snap.data())
-          document.getElementById("quote-goes-here1").innerHTML = snap.data().superstore1;
+          document.getElementById("quote-goes-here").innerHTML = snap.data().limit;
         })
     }
-    readQuote1();
-
-    function readQuote2() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here2").innerHTML = snap.data().superstore2;
-        })
-    }
-    readQuote2();
-
-    function readQuote3() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here3").innerHTML = snap.data().walmart1;
-        })
-    }
-    readQuote3();
-
-    function readQuote4() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here4").innerHTML = snap.data().walmart2;
-        })
-    }
-    readQuote4();
-
-    function readQuote5() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here5").innerHTML = snap.data().tnt1;
-        })
-    }
-    readQuote5();
-
-    function readQuote6() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here6").innerHTML = snap.data().tnt2;
-        })
-    }
-    readQuote6();
-
-    function readQuote7() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here7").innerHTML = snap.data().tnt3;
-        })
-    }
-    readQuote7();
-
-    function readQuote8() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here8").innerHTML = snap.data().shoppers1;
-        })
-    }
-    readQuote8();
-
-    function readQuote9() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here9").innerHTML = snap.data().shoppers2;
-        })
-    }
-    readQuote9();
-
-    function readQuote10() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here10").innerHTML = snap.data().shoppers3;
-        })
-    }
-    readQuote10();
-
-    function readQuote11() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here11").innerHTML = snap.data().shoppers4;
-        })
-    }
-    readQuote11();
-
-    function readQuote12() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here12").innerHTML = snap.data().foody;
-        })
-    }
-    readQuote12();
-
-    function readQuote13() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here13").innerHTML = snap.data().tire1;
-        })
-    }
-    readQuote13();
-
-    function readQuote14() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here14").innerHTML = snap.data().tire2;
-        })
-    }
-    readQuote14();
+    readQuote();
 
   </script>
 
