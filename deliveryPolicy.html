@@ -71,7 +71,7 @@
                     <a class="nav-link" href="#">Shoping Cart</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="deliveryPolicy.html">Delivery Policy</a>
+                    <a class="nav-link" href="#">Delivery Policy</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="return policy.html">Return Policy</a>
@@ -104,7 +104,7 @@
     </a></div>
   <div class="container">
     <h1 class="display-4" style="text-align: center;">Our Cooperative Stores Are Here</h1>
-    <h2><span id="quote-goes-here"></span></h2>
+    <h2><span id="delivery-goes-here"></span></h2>
   </div>
 
 
@@ -138,14 +138,14 @@
 
 
   <script>
-    function readQuote() {
-      db.collection("Store").doc("return")
+    function getDeliveryPolicy() {
+      db.collection("Store").doc("delivery")
         .onSnapshot(function (snap) {
           console.log(snap.data())
-          document.getElementById("quote-goes-here").innerHTML = snap.data().policy;
+          document.getElementById("delivery-goes-here").innerHTML = snap.data().deliveryPolicy;
         })
     }
-    readQuote();
+    getDeliveryPolicy();
 
   </script>
 

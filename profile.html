@@ -16,7 +16,7 @@
     <!-- Optional styles and scripts of your own -->
 
     <style>
-        .backButton {
+        .backButtonPadding {
             padding-left: 20px;
         }
     </style>
@@ -41,7 +41,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="main.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -77,10 +77,10 @@
                         <a class="nav-link" href="#">Shoping Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Delivery Policy</a>
+                        <a class="nav-link" href="deliveryPolicy.html">Delivery Policy</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Return Policy</a>
+                        <a class="nav-link" href="return policy.html">Return Policy</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -94,7 +94,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Account</a>
+                        <a class="nav-link" href="profile.html">My Account</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -112,18 +112,21 @@
 
 
 
-    <div>
-        <button type="button" class="btn btn-secondary btn-lg" class="backButton">Add Balance</button>
-    </div>
+
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">$</span>
         </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
+        <input id="userInput" type="text" class="form-control" aria-label="Amount (to the nearest dollar)"></input>
+
+        <!-- <div class="input-group-append">
             <span class="input-group-text">.00</span>
-        </div>
+        </div> -->
+    </div>
+
+    <div>
+        <button onclick="writeBalance()" class="btn btn-secondary btn-lg" class = "backButtonPadding">Add Balance</button>
     </div>
 
     <div class="container">
@@ -267,6 +270,35 @@
                 })
         }
         getLastName();
+
+
+
+        function writeBalance() {
+            var newBalanceRef = db.collection("users");
+
+            //var input = document.getElementById("userInput").value;
+
+            newBalanceRef.add({
+                newBalance: 15150
+            });
+        }
+        writeBalance();
+
+
+        function wirteANewUser() {
+            var newUserRef = db.collection("users");
+            newUserRef.add({
+                currentBalance: 420,
+                firstName: "Thanos",
+                lastName: "Purple",
+                middleName: "jrn",
+                newBalance: 151105,
+                username: "ThanosInfinityStones123"
+            });
+        }
+        wirteANewUser();
+
+
 
 
         // function test() {
