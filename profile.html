@@ -227,10 +227,10 @@
         //getCurrentBalance();
 
         function getCurrentBalance() {
-            db.collection("users").doc("cwws9DGFnjUuENArmb8Kc4qTMLo1")
+            db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")
                 .onSnapshot(function (snap) {
                     console.log(snap.data())
-                    document.getElementById("currentBalance-goes-here").innerHTML = snap.data().name;
+                    document.getElementById("currentBalance-goes-here").innerHTML = snap.data().currentBalance;
                 })
         }
         getCurrentBalance();
