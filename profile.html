@@ -227,29 +227,29 @@
 
         //getCurrentBalance();
 
-        function storeUserId() {
-            firebase.auth().onAuthStateChanged(function (somebody) {
-                if (somebody) {
+        // function storeUserId() {
+        //     firebase.auth().onAuthStateChanged(function (somebody) {
+        //         if (somebody) {
 
 
-                    var userID = console.log(somebody.uid);
+        //             var userID = console.log(somebody.uid);
 
-                    db.collection("users")
-                        .doc(somebody.uid)
-                        .get()
-                        .then(function (doc) {
+        //             db.collection("users")
+        //                 .doc(somebody.uid)
+        //                 .get()
+        //                 .then(function (doc) {
 
-                            //this will show the user's name from the somebody.id
-                            console.log(doc.data().name);
-                            var n = doc.data().name;
-                        })
-                } else {
+        //                     //this will show the user's name from the somebody.id
+        //                     console.log(doc.data().name);
+        //                     var n = doc.data().name;
+        //                 })
+        //         } else {
 
-                }
-            })
-        }
-        storeUserId();
-        var currentUserID = storeUserId();
+        //         }
+        //     })
+        // }
+        // storeUserId();
+        // var currentUserID = storeUserId();
 
         function getCurrentBalance() {
             firebase.auth().onAuthStateChanged(function (somebody) {
@@ -265,49 +265,61 @@
         getCurrentBalance();
 
         function getUserName() {
-            db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("username-goes-here").innerHTML = snap.data().username;
-                })
+            firebase.auth().onAuthStateChanged(function (somebody) {
+
+                db.collection("users").doc(somebody.uid)
+                    .onSnapshot(function (snap) {
+                        console.log(snap.data())
+                        document.getElementById("username-goes-here").innerHTML = snap.data().username;
+                    })
+            })
         }
         getUserName();
 
         function getUserEamil() {
             firebase.auth().onAuthStateChanged(function (somebody) {
-            db.collection("users").doc(somebody.uid)
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("email-goes-here").innerHTML = snap.data().email;
-                })
+                db.collection("users").doc(somebody.uid)
+                    .onSnapshot(function (snap) {
+                        console.log(snap.data())
+                        document.getElementById("email-goes-here").innerHTML = snap.data().email;
+                    })
             })
         }
         getUserEamil();
 
         function getFirstName() {
-            db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")
+            firebase.auth().onAuthStateChanged(function (somebody) {
+
+db.collection("users").doc(somebody.uid)
                 .onSnapshot(function (snap) {
                     console.log(snap.data())
                     document.getElementById("firstName-goes-here").innerHTML = snap.data().firstName;
                 })
+            })
         }
         getFirstName();
 
         function getMiddleName() {
-            db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")
+            firebase.auth().onAuthStateChanged(function (somebody) {
+
+db.collection("users").doc(somebody.uid)
                 .onSnapshot(function (snap) {
                     console.log(snap.data())
                     document.getElementById("middleName-goes-here").innerHTML = snap.data().middleName;
                 })
+            })
         }
         getMiddleName();
 
         function getLastName() {
-            db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")
+            firebase.auth().onAuthStateChanged(function (somebody) {
+
+db.collection("users").doc(somebody.uid)
                 .onSnapshot(function (snap) {
                     console.log(snap.data())
                     document.getElementById("lastName-goes-here").innerHTML = snap.data().lastName;
                 })
+            })
         }
         getLastName();
 
