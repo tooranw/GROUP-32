@@ -347,63 +347,7 @@
     }
     readQuote();
 
-    function sayHello() {
-      firebase.auth().onAuthStateChanged(function (somebody) {
-        if (somebody) {
 
-          console.log(somebody.uid);
-
-
-          db.collection("users")
-            .doc(somebody.uid)
-            .get()
-            .then(function (doc) {
-
-              console.log(doc.data().name);
-              var n = doc.data().name;
-
-              $("#name-goes-here").text(n);
-            })
-        } else {
-          // No user is signed in.
-        }
-      })
-    }
-
-    sayHello();
-
-
-    function displayCities() {
-      db.collection("cities").get()
-        .then(function (snap) {
-          snap.forEach(function (doc) {
-            var n = doc.data().name;
-            console.log(n);
-            var cityid = doc.data().code;
-            console.log(cityid);
-            document.getElementById(cityid).innerText = n;
-          })
-
-        })
-    }
-    displayCities();
-
-    function writeCities() {
-      var citiesRef = db.collection("cities");
-
-      citiesRef.add({
-        code: "YVR",
-        name: "Jerry lives in Richmond",
-      });
-      citiesRef.add({
-        code: "TOK",
-        name: "Tokyo",
-      });
-      citiesRef.add({
-        code: "BJ",
-        name: "Beijing",
-      });
-    }
   </script>
 
 

@@ -1,36 +1,19 @@
 function sayHello() {
-    firebase.auth().onAuthStateChanged(function(somebody){
-        if(somebody) {
-
+    firebase.auth().onAuthStateChanged(function (somebody) {
+        if (somebody) {
             console.log(somebody.uid);
-            
-            //this will sonsole log the current logged in user
-            // uid -uS9qwFZNjHP5GFfwcFvXKWKycEG3
-            
-
-            //doc is a pointer to the user in firestore
-
             db.collection("users")
-            .doc(somebody.uid)
-            .get()
-            .then(function(doc){
-
-                //this will also show in the console log
-                // ie seo dam mi 
-                console.log(doc.data().name);
-                var n = doc.data().name;
-
-                //jquery
-                //name of the id in main
-                //assigning the text to the id from n
-                $("#name-goes-here").text(n);
-            })
-        }else {
-            // No user is signed in.
+                .doc(somebody.uid)
+                .get()
+                .then(function (doc) {
+                    console.log(doc.data().name);//for debug. no other use
+                    var n = doc.data().name;
+                    $("#name-goes-here").text(n);
+                })
         }
     })
-}
 
+}
 sayHello();
 
 function getUsername() {
