@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My BCIT Project</title>
+    <meta name="comp1800 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+
+    <!-- Bootstrap for Mobile-first, and JQuery -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Optional styles and scripts of your own -->
+
+
+</head>
+
+<style>
+    .heading {
+        font-size: 25px;
+        margin-right: 25px;
+    }
+
+    .fa {
+        font-size: 25px;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    /* Three column layout */
+    .side {
+        float: left;
+        width: 15%;
+        margin-top: 10px;
+    }
+
+    .middle {
+        margin-top: 10px;
+        float: left;
+        width: 70%;
+    }
+
+    /* Place text to the right */
+    .right {
+        text-align: right;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* The bar container */
+    .bar-container {
+        width: 100%;
+        background-color: #f1f1f1;
+        text-align: center;
+        color: white;
+    }
+
+    /* Individual bars */
+    .bar-5 {
+        width: 80%;
+        height: 18px;
+        background-color: #4CAF50;
+    }
+
+    .bar-4 {
+        width: 50%;
+        height: 18px;
+        background-color: #2196F3;
+    }
+
+    .bar-3 {
+        width: 10%;
+        height: 18px;
+        background-color: #00bcd4;
+    }
+
+    .bar-2 {
+        width: 7%;
+        height: 18px;
+        background-color: #ff9800;
+    }
+
+    .bar-1 {
+        width: 1%;
+        height: 18px;
+        background-color: #f44336;
+    }
+
+    /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+    @media (max-width: 400px) {
+
+        .side,
+        .middle {
+            width: 100%;
+        }
+
+        .right {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+
+    <!-------------------------------------->
+    <!-- The following is HTML for layout -->
+    <!-------------------------------------->
+    <!-- Header Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">JustBuyIt</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Location
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Alberta - AB</a></li>
+                            <li><a class="dropdown-item" href="#">British Columbia - BC</a></li>
+                            <li><a class="dropdown-item" href="#">Manitoba - MB</a></li>
+                            <li><a class="dropdown-item" href="#">New Brunswick - NB</a></li>
+                            <li><a class="dropdown-item" href="#">Newfoundland and Labrador - NL</a></li>
+                            <li><a class="dropdown-item" href="#">Northwest Territories - NT</a></li>
+                            <li><a class="dropdown-item" href="#">Nova Scotia - NS</a></li>
+                            <li><a class="dropdown-item" href="#">Nunavut - NU</a></li>
+                            <li><a class="dropdown-item" href="#">Ontario - ON</a></li>
+                            <li><a class="dropdown-item" href="#">Prince Edward Island - PE</a></li>
+                            <li><a class="dropdown-item" href="#">Quebec - QC</a></li>
+                            <li><a class="dropdown-item" href="#">Saskatchewan - SK</a></li>
+                            <li><a class="dropdown-item" href="#">Yukon - YT</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="storelist.html">Find a Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Get Email Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Customer Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shoping Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deliveryPolicy.html">Delivery Policy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="return policy.html">Return Policy</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Français</a></li>
+                            <li><a class="dropdown-item" href="#">中文</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">My Account</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="alert alert-danger" role="alert" style="text-align: center;"><a href="covidupdate.html">
+            Learn more about important COVID updates/operating hours.
+        </a></div>
+    <div class="container">
+        <h1 class="display-4" style="text-align: center;">Welcome to your private shopping mall!</h1>
+    </div>
+
+
+    <div style="width:1400px;">
+        <div style="float:left; clear: both;">
+            <img src="images/masks.jpg" width="400" alt="" hspace="8"><br />
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2>Orange River 3-Ply ASTM 2 Disposable Face Masks - Kids - 50 Pack</h2>
+        <h2>$17.99</h2>
+        <br>
+        <a href="#" class="btn btn-primary">Click to Buy</a>
+
+    </div>
+    <br>
+    <div>
+        <p>Orange River Disposable 3 Layer Kids Face Mask ASTM Level 2 is tested by Kinectrics, a Canadian-owned and
+            operated company. It's the only Canadian lab engaged with Health Canada to be able to offer the entire
+            series of ASTM F2100 surgical mask tests and niosh-type respirator testing in accordance with 42 CFR part
+            84. This 3 layer kids face mask is 3-ply, non-woven, pleat style design with high-quality elastic ear loops
+            to maximize comfort. It's equipped with an integrated nose bridge made of soft metal to provide a
+            customized, secure fit for each wearer. Orange River Disposable 3 Layer Kids Face Mask is made from light,
+            soft, high-quality, non-woven material that provides exceptional comfort and breathability.</p>
+        <br>
+        <ul>
+            <li>High quality, disposable 3 ply kids face mask</li>
+            <li>Meltblown, non-woven fabric</li>
+            <li>Pass ASTM Level 2 Face Mask Standard, Tested By Canadian Lab</li>
+            <li>Average BFE & PFE Efficiency Lab Report >99.9%, Fluid Resistance Level 2 Approved 120Mmhg</li>
+            <li>Covers nose, mouth, and chin to protect you from germs, sprays, splashes, and droplets</li>
+            <li>Latex free</li>
+            <li>Fibre glass free</li>
+            <li>Product Size: 5.7" x 3.74"</li>
+            <li>Package Size: 7.1" x 3.74" x 2.95"</li>
+            <li>50 Pack</li>
+            <li>Does not contain graphene</li>
+        </ul>
+
+    </div>
+
+
+    <span class="heading">User Rating</span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <p>4.1 average based on 254 reviews.</p>
+    <hr style="border:3px solid #f1f1f1">
+
+    <div class="row">
+        <div class="side">
+            <div>5 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-5"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>575</div>
+        </div>
+        <div class="side">
+            <div>4 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-4"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>400</div>
+        </div>
+        <div class="side">
+            <div>3 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-3"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>50</div>
+        </div>
+        <div class="side">
+            <div>2 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-2"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>42</div>
+        </div>
+        <div class="side">
+            <div>1 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-1"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>0</div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Back to Top</a>
+        </div>
+    </nav>
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, JQuery, Firebase, API related    -->
+    <!----------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="scripts/firebase_api_group32.js"></script>
+
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+    <script src="scripts/my_functions.js"></script>
+
+    <script>
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    </script>
+
+    <script>
+        function readQuote() {
+            db.collection("stores").doc("name")
+                .onSnapshot(function (snap) {
+                    console.log(snap.data())
+                    document.getElementById("quote-goes-here").innerHTML = snap.data().message;
+                })
+        }
+        readQuote();
+
+        function sayHello() {
+            firebase.auth().onAuthStateChanged(function (somebody) {
+                if (somebody) {
+
+                    console.log(somebody.uid);
+
+
+                    db.collection("users")
+                        .doc(somebody.uid)
+                        .get()
+                        .then(function (doc) {
+
+                            console.log(doc.data().name);
+                            var n = doc.data().name;
+
+                            $("#name-goes-here").text(n);
+                        })
+                } else {
+                    // No user is signed in.
+                }
+            })
+        }
+
+        sayHello();
+
+
+        function displayCities() {
+            db.collection("cities").get()
+                .then(function (snap) {
+                    snap.forEach(function (doc) {
+                        var n = doc.data().name;
+                        console.log(n);
+                        var cityid = doc.data().code;
+                        console.log(cityid);
+                        document.getElementById(cityid).innerText = n;
+                    })
+
+                })
+        }
+        displayCities();
+
+        function writeCities() {
+            var citiesRef = db.collection("cities");
+
+            citiesRef.add({
+                code: "YVR",
+                name: "Jerry lives in Richmond",
+            });
+            citiesRef.add({
+                code: "TOK",
+                name: "Tokyo",
+            });
+            citiesRef.add({
+                code: "BJ",
+                name: "Beijing",
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
