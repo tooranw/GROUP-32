@@ -231,18 +231,18 @@
             firebase.auth().onAuthStateChanged(function (somebody) {
                 if (somebody) {
 
-                    
+
                     var userID = console.log(somebody.uid);
 
                     db.collection("users")
-                    .doc(somebody.uid)
-                    .get()
-                    .then(function (doc) {
+                        .doc(somebody.uid)
+                        .get()
+                        .then(function (doc) {
 
-                        //this will show the user's name from the somebody.id
-                        console.log(doc.data().name);
-                        var n = doc.data().name;
-                    })
+                            //this will show the user's name from the somebody.id
+                            console.log(doc.data().name);
+                            var n = doc.data().name;
+                        })
                 } else {
 
                 }
@@ -252,12 +252,20 @@
         var currentUserID = storeUserId();
 
         function getCurrentBalance() {
-            db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("currentBalance-goes-here").innerHTML = snap.data().currentBalance;
-                })
+            firebase.auth().onAuthStateChanged(function (somebody) {
+
+                db.collection("users").doc(somebody.uid)
+                    .onSnapshot(function (snap) {
+                        console.log(snap.data())
+                        document.getElementById("currentBalance-goes-here").innerHTML = snap.data()
+                            .currentBalance;
+                    })
+            })
         }
+
+
+
+
         getCurrentBalance();
 
         function getUserName() {
