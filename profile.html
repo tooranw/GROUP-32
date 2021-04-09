@@ -290,11 +290,11 @@
         function getFirstName() {
             firebase.auth().onAuthStateChanged(function (somebody) {
 
-db.collection("users").doc(somebody.uid)
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("firstName-goes-here").innerHTML = snap.data().firstName;
-                })
+                db.collection("users").doc(somebody.uid)
+                    .onSnapshot(function (snap) {
+                        console.log(snap.data())
+                        document.getElementById("firstName-goes-here").innerHTML = snap.data().firstName;
+                    })
             })
         }
         getFirstName();
@@ -302,11 +302,11 @@ db.collection("users").doc(somebody.uid)
         function getMiddleName() {
             firebase.auth().onAuthStateChanged(function (somebody) {
 
-db.collection("users").doc(somebody.uid)
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("middleName-goes-here").innerHTML = snap.data().middleName;
-                })
+                db.collection("users").doc(somebody.uid)
+                    .onSnapshot(function (snap) {
+                        console.log(snap.data())
+                        document.getElementById("middleName-goes-here").innerHTML = snap.data().middleName;
+                    })
             })
         }
         getMiddleName();
@@ -314,71 +314,82 @@ db.collection("users").doc(somebody.uid)
         function getLastName() {
             firebase.auth().onAuthStateChanged(function (somebody) {
 
-db.collection("users").doc(somebody.uid)
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("lastName-goes-here").innerHTML = snap.data().lastName;
-                })
+                db.collection("users").doc(somebody.uid)
+                    .onSnapshot(function (snap) {
+                        console.log(snap.data())
+                        document.getElementById("lastName-goes-here").innerHTML = snap.data().lastName;
+                    })
             })
         }
         getLastName();
 
 
 
-        function writeBalance() {
-            var newBalanceRef = db.collection("users");
+        // function writeBalance() {
 
-            //var input = document.getElementById("userInput").value;
+        //     var newBalanceRef = db.collection("users");
 
-            newBalanceRef.add({
-                newBalance: 15150
-            });
-        }
+        //     //var input = document.getElementById("userInput").value;
+
+        //     newBalanceRef.add({
+        //         newBalance: 15150
+        //     });
+        // }
         //writeBalance();
 
+        function writeBalance() {
+            firebase.auth().onAuthStateChanged(function (somebody) {
 
-        function wirteANewUser() {
-            var newUserRef = db.collection("users");
-            newUserRef.add({
-                currentBalance: 420,
-                firstName: "Thanos",
-                lastName: "Purple",
-                middleName: "jrn",
-                newBalance: 151105,
-                username: "ThanosInfinityStones123"
-            });
-        }
-        // wirteANewUser();
+                    db.collection("users").doc(somebody.uid)
 
+                })
 
-
-
-        // function test() {
-        //     db.collection("Store").doc("name")
-        //         .onSnapshot(function (snap) {
-        //             console.log(snap.data())
-        //             document.getElementById("currentBalance-goes-here").innerHTML = snap.data().Superstore;
-        //         })
-        // }
-        // test();
-
-        $(document).ready(function () {
-            // Prepare the preview for profile picture
-            $("#wizard-picture").change(function () {
-                readURL(this);
-            });
-        });
-
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-                }
-                reader.readAsDataURL(input.files[0]);
             }
-        }
+
+
+
+            function wirteANewUser() {
+                var newUserRef = db.collection("users");
+                newUserRef.add({
+                    currentBalance: 420,
+                    firstName: "Thanos",
+                    lastName: "Purple",
+                    middleName: "jrn",
+                    newBalance: 151105,
+                    username: "ThanosInfinityStones123"
+                });
+            }
+            // wirteANewUser();
+
+
+
+
+            // function test() {
+            //     db.collection("Store").doc("name")
+            //         .onSnapshot(function (snap) {
+            //             console.log(snap.data())
+            //             document.getElementById("currentBalance-goes-here").innerHTML = snap.data().Superstore;
+            //         })
+            // }
+            // test();
+
+            $(document).ready(function () {
+                // Prepare the preview for profile picture
+                $("#wizard-picture").change(function () {
+                    readURL(this);
+                });
+            });
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
     </script>
 
 

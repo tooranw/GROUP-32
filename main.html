@@ -101,9 +101,31 @@
   <div class="alert alert-danger" role="alert" style="text-align: center;"><a href="covidupdate.html">
       Learn more about important COVID updates/operating hours.
     </a></div>
+
+    
   <div class="container">
-    <h1 class="display-4" style="text-align: center;">Welcome to your private shopping mall!</h1>
+    <!-- <h1 id="name-goes-here"></h1> -->
+    <h1 class="display-4" style="text-align: center;">Welcome 
+      <span id="name-goes-here">to your private shopping
+        mall!</span> </h1>
   </div>
+
+  <!-- <div class="container">
+    <h1 style="text-align: center;">Welcome 
+      <span id="name-goes-here">to your private shopping
+        mall!</span> </h1>
+  </div> -->
+
+  <!-- <div class="container"> -->
+    <!-- <h1 id="name-goes-here"></h1> -->
+    <!-- <h1 class="display-4" style="text-align: center;">Welcome 
+      <span id="name-goes-here">to your private shopping
+        mall!</span> </h1>
+  </div> -->
+
+
+
+
 
 
   <div style="width: -50%; float:left">
@@ -192,7 +214,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
+  </script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
@@ -208,7 +230,9 @@
   <!--------------------------------------------------------------------->
   <script src="scripts/my_functions.js"></script>
 
-  <script>var ui = new firebaseui.auth.AuthUI(firebase.auth());</script>
+  <script>
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  </script>
 
   <script>
     function readQuote() {
@@ -220,30 +244,40 @@
     }
     readQuote();
 
-    function sayHello() {
-      firebase.auth().onAuthStateChanged(function (somebody) {
-        if (somebody) {
+    // function sayHello() {
+    //   firebase.auth().onAuthStateChanged(function (somebody) {
+    //     if (somebody) {
 
-          console.log(somebody.uid);
+    //       console.log(somebody.uid);
 
 
-          db.collection("users")
-            .doc(somebody.uid)
-            .get()
-            .then(function (doc) {
+    //       db.collection("users")
+    //         .doc(somebody.uid)
+    //         .get()
+    //         .then(function (doc) {
 
-              console.log(doc.data().name);
-              var n = doc.data().name;
+    //           console.log(doc.data().name);
+    //           var n = doc.data().name;
 
-              $("#name-goes-here").text(n);
-            })
-        } else {
-          // No user is signed in.
-        }
-      })
-    }
+    //           $("#name-goes-here").text(n);
+    //         })
+    //     } else {
+    //       // No user is signed in.
+    //     }
+    //   })
+    // }
 
-    sayHello();
+    // function sayHello() {
+    //   firebase.auth().onAuthStateChanged(function (somebody) {
+    //     db.collection("users").doc(somebody.uid)
+    //       .onSnapshot(function (snap) {
+    //         console.log(snap.data())
+    //         document.getElementById("name-goes-here").innerHTML = snap.data().name;
+    //       })
+    //   })
+    // }
+
+    
 
 
     function displayCities() {
@@ -277,8 +311,6 @@
         name: "Beijing",
       });
     }
-
-
   </script>
 
 
