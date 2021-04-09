@@ -1,5 +1,6 @@
 function sayHello() {
     firebase.auth().onAuthStateChanged(function (somebody) {
+<<<<<<< HEAD
 
 
             console.log(somebody.uid);
@@ -27,6 +28,22 @@ function sayHello() {
                 })
         }) 
     }
+=======
+        if (somebody) {
+            console.log(somebody.uid);
+            db.collection("users")
+                .doc(somebody.uid)
+                .get()
+                .then(function (doc) {
+                    console.log(doc.data().name);//for debug. no other use
+                    var n = doc.data().name;
+                    $("#name-goes-here").text(n);
+                })
+        }
+    })
+
+}
+>>>>>>> cc0cf6c9d414926b1b3166fe96fad1df4dc1d8de
 sayHello();
 
 function getUsername() {
