@@ -262,10 +262,6 @@
                     })
             })
         }
-
-
-
-
         getCurrentBalance();
 
         function getUserName() {
@@ -278,11 +274,13 @@
         getUserName();
 
         function getUserEamil() {
-            db.collection("users").doc("currentUserID")
+            firebase.auth().onAuthStateChanged(function (somebody) {
+            db.collection("users").doc(somebody.uid)
                 .onSnapshot(function (snap) {
                     console.log(snap.data())
                     document.getElementById("email-goes-here").innerHTML = snap.data().email;
                 })
+            })
         }
         getUserEamil();
 
@@ -324,7 +322,7 @@
                 newBalance: 15150
             });
         }
-        writeBalance();
+        //writeBalance();
 
 
         function wirteANewUser() {
@@ -338,7 +336,7 @@
                 username: "ThanosInfinityStones123"
             });
         }
-        wirteANewUser();
+        // wirteANewUser();
 
 
 
