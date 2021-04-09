@@ -126,7 +126,7 @@
     </div>
 
     <div>
-        <button onclick="writeBalance()" class="btn btn-secondary btn-lg" class = "backButtonPadding">Add Balance</button>
+        <button onclick="writeBalance()" class="btn btn-secondary btn-lg" class="backButtonPadding">Add Balance</button>
     </div>
 
     <div class="container">
@@ -166,6 +166,7 @@
         <ul>
             <!-- <li>Testing using the uid directly</li> -->
             <li>Username: <span id="username-goes-here"></span></li>
+            <li>Email: <span id="email-goes-here"></span></li>
             <li>First Name: <span id="firstName-goes-here"></span></li>
             <li>Middle Name: <span id="middleName-goes-here"></span></li>
             <li>Last Name: <span id="lastName-goes-here"></span></li>
@@ -226,6 +227,30 @@
 
         //getCurrentBalance();
 
+        function storeUserId() {
+            firebase.auth().onAuthStateChanged(function (somebody) {
+                if (somebody) {
+
+                    
+                    var userID = console.log(somebody.uid);
+
+                    db.collection("users")
+                    .doc(somebody.uid)
+                    .get()
+                    .then(function (doc) {
+
+                        //this will show the user's name from the somebody.id
+                        console.log(doc.data().name);
+                        var n = doc.data().name;
+                    })
+                } else {
+
+                }
+            })
+        }
+        storeUserId();
+        var currentUserID = storeUserId();
+
         function getCurrentBalance() {
             db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")
                 .onSnapshot(function (snap) {
@@ -243,6 +268,15 @@
                 })
         }
         getUserName();
+
+        function getUserEamil() {
+            db.collection("users").doc("currentUserID")
+                .onSnapshot(function (snap) {
+                    console.log(snap.data())
+                    document.getElementById("email-goes-here").innerHTML = snap.data().email;
+                })
+        }
+        getUserEamil();
 
         function getFirstName() {
             db.collection("users").doc("CTH7kSNBv6ShX1YJvL2k")

@@ -44,6 +44,7 @@
     <div class="container">
         <h1 class="display-4" style="text-align: center;"> Let's get you logged in ... </h1>
         <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
     </div>
 
 
@@ -90,7 +91,11 @@
                     if (authResult.additionalUserInfo.isNewUser) {         //if new user
                         db.collection("users").doc(user.uid).set({         //write to firestore
                                 name: user.displayName,                    //"users" collection
-                                email: user.email                          //with authenticated user's ID (user.uid)
+                                email: user.email,                          //with authenticated user's ID (user.uid)
+                                currentBalance: 150
+                            
+
+                                
             
                             }).then(function () {
                                 console.log("New user added to firestore");
