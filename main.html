@@ -101,8 +101,18 @@
   <div class="alert alert-danger" role="alert" style="text-align: center;"><a href="covidupdate.html">
       Learn more about important COVID updates/operating hours.
     </a></div>
+<<<<<<< HEAD
   <div class="container" >
     <h1 class="display-4" style="text-align: center;">Welcome to your private shopping mall!</h1>
+=======
+
+    
+  <div class="container">
+    <!-- <h1 id="name-goes-here"></h1> -->
+    <h1 class="display-4" style="text-align: center;">Welcome 
+      <span id="name-goes-here"> to your private shopping
+        mall!</span> </h1>
+>>>>>>> 847745d27cd5885d398152b8ef34c6e9f719d9df
   </div>
 
   <!-- <div class="container">
@@ -257,6 +267,40 @@
 }
 sayHello();
 
+<<<<<<< HEAD
+=======
+    function displayCities() {
+      db.collection("cities").get()
+        .then(function (snap) {
+          snap.forEach(function (doc) {
+            var n = doc.data().name;
+            console.log(n);
+            var cityid = doc.data().code;
+            console.log(cityid);
+            document.getElementById(cityid).innerText = n;
+          })
+
+        })
+    }
+    displayCities();
+
+    function writeCities() {
+      var citiesRef = db.collection("cities");
+
+      citiesRef.add({
+        code: "YVR",
+        name: "Jerry lives in Richmond",
+      });
+      citiesRef.add({
+        code: "TOK",
+        name: "Tokyo",
+      });
+      citiesRef.add({
+        code: "BJ",
+        name: "Beijing",
+      });
+    }
+>>>>>>> 847745d27cd5885d398152b8ef34c6e9f719d9df
 
     
 
