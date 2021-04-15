@@ -102,6 +102,9 @@
       Learn more about important COVID updates/operating hours.
     </a></div>
 
+
+
+
     
   <div class="container">
     <!-- <h1 id="name-goes-here"></h1> -->
@@ -261,37 +264,6 @@
 }
 sayHello();
 
-    function displayCities() {
-      db.collection("cities").get()
-        .then(function (snap) {
-          snap.forEach(function (doc) {
-            var n = doc.data().name;
-            console.log(n);
-            var cityid = doc.data().code;
-            console.log(cityid);
-            document.getElementById(cityid).innerText = n;
-          })
-
-        })
-    }
-    displayCities();
-
-    function writeCities() {
-      var citiesRef = db.collection("cities");
-
-      citiesRef.add({
-        code: "YVR",
-        name: "Jerry lives in Richmond",
-      });
-      citiesRef.add({
-        code: "TOK",
-        name: "Tokyo",
-      });
-      citiesRef.add({
-        code: "BJ",
-        name: "Beijing",
-      });
-    }
 
     
 
