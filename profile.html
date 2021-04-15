@@ -126,7 +126,7 @@
     </div>
 
     <div>
-        <button onclick="writeBalance()" class="btn btn-secondary btn-lg" class="backButtonPadding">Add Balance</button>
+        <button onclick="writeNewBalance()" class="btn btn-secondary btn-lg" class="backButtonPadding">Add Balance</button>
     </div>
 
     <div class="container">
@@ -337,59 +337,82 @@
         // }
         //writeBalance();
 
-        function writeBalance() {
+        function writeNewBalance() {
             firebase.auth().onAuthStateChanged(function (somebody) {
 
-                    db.collection("users").doc(somebody.uid)
+                var input = document.getElementById("userInput").value;
+                console.log(input);
+
+                db.collection("users").doc(somebody.uid).update({
+
+                    currentBalance: firebase.firestore.FieldValue.increment(input) //increments field!
 
                 })
 
-            }
+            })
 
-
-
-            function wirteANewUser() {
-                var newUserRef = db.collection("users");
-                newUserRef.add({
-                    currentBalance: 420,
-                    firstName: "Thanos",
-                    lastName: "Purple",
-                    middleName: "jrn",
-                    newBalance: 151105,
-                    username: "ThanosInfinityStones123"
-                });
-            }
-            // wirteANewUser();
+        }
 
 
 
 
-            // function test() {
-            //     db.collection("Store").doc("name")
-            //         .onSnapshot(function (snap) {
-            //             console.log(snap.data())
-            //             document.getElementById("currentBalance-goes-here").innerHTML = snap.data().Superstore;
-            //         })
-            // }
-            // test();
+        function addMaskToCart() {
+            //document.getElementById(addToCart).addEventListener("click", function (somebody) {
+            console.log("addMaskToCart was clicked!");
+            firebase.auth().onAuthStateChanged(function (somebody) {
+                db.collection("users").doc(somebody.uid).update({
 
-            $(document).ready(function () {
-                // Prepare the preview for profile picture
-                $("#wizard-picture").change(function () {
-                    readURL(this);
-                });
+                    cart: "Mask",
+                    cartBalance: firebase.firestore.FieldValue.increment(17.99) //increments field!
+
+                })
+            })
+        }
+
+
+
+        function wirteANewUser() {
+            var newUserRef = db.collection("users");
+            newUserRef.add({
+                currentBalance: 420,
+                firstName: "Thanos",
+                lastName: "Purple",
+                middleName: "jrn",
+                newBalance: 151105,
+                username: "ThanosInfinityStones123"
             });
+        }
+        // wirteANewUser();
 
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
 
-                    reader.onload = function (e) {
-                        $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-                    }
-                    reader.readAsDataURL(input.files[0]);
+
+
+        // function test() {
+        //     db.collection("Store").doc("name")
+        //         .onSnapshot(function (snap) {
+        //             console.log(snap.data())
+        //             document.getElementById("currentBalance-goes-here").innerHTML = snap.data().Superstore;
+        //         })
+        // }
+        // test();
+
+        $(document).ready(function () {
+            // Prepare the preview for profile picture
+            $("#wizard-picture").change(function () {
+                readURL(this);
+            });
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
                 }
+                reader.readAsDataURL(input.files[0]);
             }
+        }
     </script>
 
 
