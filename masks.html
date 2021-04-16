@@ -108,6 +108,69 @@
             display: none;
         }
     }
+
+    /* Popup container */
+    .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    /* The actual popup (appears on top) */
+    .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: rgb(32, 98, 196);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+    }
+
+    /* Popup arrow */
+    .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    /* Toggle this class when clicking on the popup container (hide and show the popup) */
+    .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+    }
+
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
 </style>
 
 <body>
@@ -187,6 +250,11 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" href="checkout.html" style="padding-left: 100px;">Checkout</a>
+                    </li>
+                  </ul>
             </div>
         </div>
     </nav>
@@ -205,8 +273,13 @@
         <br>
         <h2>Orange River 3-Ply ASTM 2 Disposable Face Masks - Kids - 50 Pack</h2>
         <h2>$17.99</h2>
+        <h3> There are <span id="masksInventory"></span> left</h3>
         <br>
-        <a href="#" class="btn btn-primary" onclick="addMaskToCart()">Click to Buy</a>
+        <a href="#" class="btn btn-primary" class="popup" onclick="addMaskToCart()">Click to Buy</a>
+
+        <div class="popup" onclick="myFunction()">
+            <span class="popuptext" id="myPopup">Item added to cart</span>
+        </div>
 
     </div>
     <br>
@@ -352,17 +425,36 @@
         readQuote();
 
         function addMaskToCart() {
-      //document.getElementById(addToCart).addEventListener("click", function (somebody) {
-      console.log("addMaskToCart was clicked!");
-      firebase.auth().onAuthStateChanged(function (somebody) {
-        db.collection("users").doc(somebody.uid).update({
+            //document.getElementById(addToCart).addEventListener("click", function (somebody) {
+            console.log("addMaskToCart was clicked!");
+            firebase.auth().onAuthStateChanged(function (somebody) {
+                db.collection("users").doc(somebody.uid).update({
 
-            cart: "Mask",
-            cartBalance: firebase.firestore.FieldValue.increment(17.99) //increments field!
+                    cart: "Mask",
+                    cartBalance: firebase.firestore.FieldValue.increment(17.99) //increments field!
 
-          })
-      })
-    }
+                })
+
+                db.collection("items")
+                    .doc("wo9y5zoXoPwt34ncxzXN")
+                    .update({
+                        masks: firebase.firestore.FieldValue.increment(-1) //increments field!
+                    })
+            })
+
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+
+        function showMasksInventory() {
+            db.collection("items").doc("wo9y5zoXoPwt34ncxzXN")
+                .onSnapshot(function (snap) {
+                    console.log(snap.data())
+                    document.getElementById("masksInventory").innerHTML = snap.data()
+                        .masks;
+                })
+        }
+        showMasksInventory();
 
         function sayHello() {
             firebase.auth().onAuthStateChanged(function (somebody) {

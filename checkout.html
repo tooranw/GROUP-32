@@ -232,7 +232,8 @@
                 console.log(balance);
 
 
-                var netBalance = balance - cart;
+                var netBalance = ( balance - cart).toFixed(2);
+                
 
                 $("#userNewBalance").text("Your New Balance: CAD$ " + netBalance);
 
