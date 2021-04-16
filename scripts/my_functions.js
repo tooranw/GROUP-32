@@ -108,6 +108,29 @@ function citiesQuery(){
 }
 citiesQuery();
 
+function topThreeItemsQuery(){
+    db.collection("items")
+    .where("stock", "<", 5)
+    .orderBy("stock", "desc")
+
+    //^^ these are db queries. like SQL you can order th stuff around
+    .get()
+    .then(function(snap){
+        snap.forEach(function(doc){
+            var iN = doc.data().itemName;
+            var s = doc.data().stock;
+
+            console.log(iN);
+            
+            console.log(s);
+            var newdom = "<p> " + iN + " " + s + "</p>";
+            $("#topThreeItems").append(newdom);
+            //document.getElementById("topThreeItems").innerHTML = newdom;
+        })
+    })
+}
+topThreeItemsQuery();
+
 
 // stuff learnt
 //query of collection
