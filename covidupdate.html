@@ -142,13 +142,7 @@
 
 
   <script>
-    function readQuote() {
-      db.collection("Store").doc("notice")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here").innerHTML = snap.data().limit;
-        })
-    }
+
     readQuote();
 
   </script>

@@ -431,172 +431,17 @@
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
   </script>
 
-  <script>
-  </script>
 
   <script>
-    // function readQuote() {
-    //   db.collection("stores").doc("name")
-    //     .onSnapshot(function (snap) {
-    //       console.log(snap.data())
-    //       document.getElementById("quote-goes-here").innerHTML = snap.data().message;
-    //     })
-    // }
-    // readQuote();
-
-
-    // function writeUserData() {
-
-    //   firebase.auth().onAuthStateChanged(function (somebody) {
-    //     console.log(somebody.uid);
-    //     firebase.database().ref('users/' + somebody.uid).set({
-    //       cartBalance: 38.89
-    //     })
-    //   })
-    // }
-    // writeUserData();
 
 
 
 
-    function addCoffeeMakerToCart() {
-      firebase.auth().onAuthStateChanged(function (somebody) {
 
-        var newItem = db.collection("users").doc(somebody.uid);
-
-        newItem.add({
-
-          cart: "Coffee Maker",
-          cartBalance: 38.89
-        })
-
-      })
-    }
-
-
-    function wirteANewUser() {
-      var newUserRef = db.collection("users");
-      newUserRef.add({
-        currentBalance: 420,
-        firstName: "Thanos",
-        lastName: "Purple",
-        middleName: "jrn",
-        newBalance: 151105,
-        username: "ThanosInfinityStones123"
-      });
-    }
-
-
-    function addCoffeeMakerToCart2(id, addToCart) {
-      document.getElementById(addToCart).addEventListener("click", function (somebody) {
-        //console.log("like was clicked!");
-        db.collection("users")
-          .doc(somebody.uid)
-          .update({
-            cart: "Coffee Maker",
-            cartBalance: firebase.firestore.FieldValue.increment(38.89) //in crements field!
-
-          })
-          .then(function () {
-            console.log("incremented the like field!");
-            //showLikes(id);
-          })
-      })
-    }
-
-    function addCoffeeMakerToCart3() {
-      //document.getElementById(addToCart).addEventListener("click", function (somebody) {
-      console.log("addCoffeeMakerToCart3 was clicked!");
-      firebase.auth().onAuthStateChanged(function (somebody) {
-
-        db.collection("users").doc(somebody.uid).update({
-
-          cart: "Coffee Maker",
-          cartBalance: firebase.firestore.FieldValue.increment(38.89) //increments field!
-
-        })
-
-
-        db.collection("items")
-          .doc("wo9y5zoXoPwt34ncxzXN")
-          .update({
-            coffeeMaker: firebase.firestore.FieldValue.increment(-1) //increments field!
-          })
-
-
-      })
-
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
-
-
-    function showCoffeeMakerInventory() {
-      db.collection("items").doc("wo9y5zoXoPwt34ncxzXN")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("coffeeMakerInventory").innerHTML = snap.data()
-            .coffeeMaker;
-        })
-    }
     showCoffeeMakerInventory();
 
 
 
-    function getDetails() {
-      // https://some.site/?id=123
-      const parsedUrl = new URL(window.location.href);
-      console.log(parsedUrl.searchParams.get("id")); // "123"
-
-      // extract id from url, assign to variable
-      var id = parsedUrl.searchParams.get("id");
-      console.log(id);
-
-      // use this ID to read from firestore
-      db.collection("webcams")
-        .doc(id) //webcam ID that we extracted
-        .get() //READ asynch
-        .then(function (doc) { // display details!
-          var name = doc.data().fields.name;
-          var geo_area = doc.data().fields.geo_local_area;
-          var coord = doc.data().fields.geom.coordinates; //know your json data
-          var url = doc.data().fields.url;
-          $("#details-go-here").append("<h1> " + name + "</h1>");
-          $("#details-go-here").append("<h1> " + geo_area + "</h1>");
-          $("#details-go-here").append("<h1> " + coord + "</h1>");
-          $("#details-go-here").append("<a href='" + url + "'> " + url);
-          var likeid = "like" + id;
-          $("#details-go-here").append("<h1 id='" + likeid + "'> CLICK HERE TO LIKE </h1>");
-          addLikeListener(id, likeid);
-        })
-    }
-
-    function addLikeListener(id, addToCart) {
-      document.getElementById(addToCart).addEventListener("click", function () {
-        //console.log("like was clicked!");
-        db.collection("webcams")
-          .doc(id)
-          .update({
-            likes: firebase.firestore.FieldValue.increment(1) //increments field!
-          })
-          .then(function () {
-            console.log("incremented the like field!");
-            showLikes(id);
-          })
-      })
-    }
-
-    // show likes field of the doc with "id"
-    function showLikes(itemid) {
-      db.collection("webcams")
-        .doc(itemid)
-        .get()
-        .then(function (doc) {
-          console.log(doc.data().fields.name);
-          var likes = doc.data().likes;
-          document.getElementById("likes-go-here").innerHTML = "<h1>" + likes + "</h1>";
-        })
-    }
   </script>
 
 

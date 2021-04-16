@@ -240,22 +240,10 @@
 
 
   <script>
-    function readQuote1() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here1").innerHTML = snap.data().superstore1;
-        })
-    }
+
     readQuote1();
 
-    function readQuote2() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here2").innerHTML = snap.data().superstore2;
-        })
-    }
+
     readQuote2();
 
     function readQuote3() {
@@ -267,103 +255,35 @@
     }
     readQuote3();
 
-    function readQuote4() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here4").innerHTML = snap.data().walmart2;
-        })
-    }
+
     readQuote4();
 
-    function readQuote5() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here5").innerHTML = snap.data().tnt1;
-        })
-    }
     readQuote5();
 
-    function readQuote6() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here6").innerHTML = snap.data().tnt2;
-        })
-    }
+
     readQuote6();
 
-    function readQuote7() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here7").innerHTML = snap.data().tnt3;
-        })
-    }
+
     readQuote7();
 
-    function readQuote8() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here8").innerHTML = snap.data().shoppers1;
-        })
-    }
+
     readQuote8();
 
-    function readQuote9() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here9").innerHTML = snap.data().shoppers2;
-        })
-    }
+
     readQuote9();
 
-    function readQuote10() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here10").innerHTML = snap.data().shoppers3;
-        })
-    }
+
     readQuote10();
 
-    function readQuote11() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here11").innerHTML = snap.data().shoppers4;
-        })
-    }
     readQuote11();
 
-    function readQuote12() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here12").innerHTML = snap.data().foody;
-        })
-    }
+
     readQuote12();
 
-    function readQuote13() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here13").innerHTML = snap.data().tire1;
-        })
-    }
+
     readQuote13();
 
-    function readQuote14() {
-      db.collection("Store").doc("store")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here14").innerHTML = snap.data().tire2;
-        })
-    }
+
     readQuote14();
   </script>
 

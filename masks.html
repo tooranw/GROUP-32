@@ -252,9 +252,9 @@
                 </form>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                      <a class="nav-link" href="checkout.html" style="padding-left: 100px;">Checkout</a>
+                        <a class="nav-link" href="checkout.html" style="padding-left: 100px;">Checkout</a>
                     </li>
-                  </ul>
+                </ul>
             </div>
         </div>
     </nav>
@@ -415,104 +415,7 @@
     </script>
 
     <script>
-        function readQuote() {
-            db.collection("stores").doc("name")
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("quote-goes-here").innerHTML = snap.data().message;
-                })
-        }
-        readQuote();
-
-        function addMaskToCart() {
-            //document.getElementById(addToCart).addEventListener("click", function (somebody) {
-            console.log("addMaskToCart was clicked!");
-            firebase.auth().onAuthStateChanged(function (somebody) {
-                db.collection("users").doc(somebody.uid).update({
-
-                    cart: "Mask",
-                    cartBalance: firebase.firestore.FieldValue.increment(17.99) //increments field!
-
-                })
-
-                db.collection("items")
-                    .doc("wo9y5zoXoPwt34ncxzXN")
-                    .update({
-                        masks: firebase.firestore.FieldValue.increment(-1) //increments field!
-                    })
-            })
-
-            var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
-        }
-
-        function showMasksInventory() {
-            db.collection("items").doc("wo9y5zoXoPwt34ncxzXN")
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("masksInventory").innerHTML = snap.data()
-                        .masks;
-                })
-        }
         showMasksInventory();
-
-        function sayHello() {
-            firebase.auth().onAuthStateChanged(function (somebody) {
-                if (somebody) {
-
-                    console.log(somebody.uid);
-
-
-                    db.collection("users")
-                        .doc(somebody.uid)
-                        .get()
-                        .then(function (doc) {
-
-                            console.log(doc.data().name);
-                            var n = doc.data().name;
-
-                            $("#name-goes-here").text(n);
-                        })
-                } else {
-                    // No user is signed in.
-                }
-            })
-        }
-
-        sayHello();
-
-
-        function displayCities() {
-            db.collection("cities").get()
-                .then(function (snap) {
-                    snap.forEach(function (doc) {
-                        var n = doc.data().name;
-                        console.log(n);
-                        var cityid = doc.data().code;
-                        console.log(cityid);
-                        document.getElementById(cityid).innerText = n;
-                    })
-
-                })
-        }
-        displayCities();
-
-        function writeCities() {
-            var citiesRef = db.collection("cities");
-
-            citiesRef.add({
-                code: "YVR",
-                name: "Jerry lives in Richmond",
-            });
-            citiesRef.add({
-                code: "TOK",
-                name: "Tokyo",
-            });
-            citiesRef.add({
-                code: "BJ",
-                name: "Beijing",
-            });
-        }
     </script>
 
 

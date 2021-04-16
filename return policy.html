@@ -143,14 +143,8 @@
 
 
   <script>
-    function readQuote() {
-      db.collection("Store").doc("return")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here").innerHTML = snap.data().policy;
-        })
-    }
-    readQuote();
+
+    readQuoteReturn();
 
   </script>
 

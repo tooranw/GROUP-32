@@ -162,23 +162,8 @@
       <span id="name-goes-here"> </span> to essential shopping!</h1>
   </div>
 
-  <!-- <div class="container">
-    <h1 style="text-align: center;">Welcome 
-      <span id="name-goes-here">to your private shopping
-        mall!</span> </h1>
-  </div> -->
-
-  <!-- <div class="container"> -->
-  <!-- <h1 id="name-goes-here"></h1> -->
-  <!-- <h1 class="display-4" style="text-align: center;">Welcome 
-      <span id="name-goes-here">to your private shopping
-        mall!</span> </h1>
-  </div> -->
 
 
-
-
-  
 
 
 
@@ -186,9 +171,9 @@
     <select class="form-select form-select-lg mb-3" onchange="window.location=this.value;"
       aria-label=".form-select-lg example">
       <option selected>Shop by Department</option>
-      <option value="coffee maker.html">Coffee Maker</option>
-      <option value="hand sanitizer.html">Hand Sanitizer</option>
-      <option value="first aid kit.html">First Aid</option>
+      <option value="coffeeMaker.html">Coffee Maker</option>
+      <option value="handSanitizer.html">Hand Sanitizer</option>
+      <option value="firstAidKit.html">First Aid</option>
       <option value="masks.html">Masks</option>
       <option value="3">Baby</option>
       <option value="4">Clothing</option>
@@ -313,32 +298,6 @@
 
 
 
-
-    function readQuote() {
-      db.collection("stores").doc("name")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("quote-goes-here").innerHTML = snap.data().message;
-        })
-    }
-    readQuote();
-
-    function sayHello() {
-      firebase.auth().onAuthStateChanged(function (somebody) {
-        if (somebody) {
-          console.log(somebody.uid);
-          db.collection("users")
-            .doc(somebody.uid)
-            .get()
-            .then(function (doc) {
-              console.log(doc.data().name); //for debug. no other use
-              var n = doc.data().name;
-              $("#name-goes-here").text(n);
-            })
-        }
-      })
-
-    }
     sayHello();
 
 

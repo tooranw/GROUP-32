@@ -143,13 +143,7 @@
 
 
   <script>
-    function getDeliveryPolicy() {
-      db.collection("Store").doc("delivery")
-        .onSnapshot(function (snap) {
-          console.log(snap.data())
-          document.getElementById("delivery-goes-here").innerHTML = snap.data().deliveryPolicy;
-        })
-    }
+
     getDeliveryPolicy();
 
   </script>

@@ -112,11 +112,7 @@
         </a></div>
 
 
-
-
-
     <div class="container">
-        <!-- <h1 id="name-goes-here"></h1> -->
         <h1 class="display-4" style="text-align: center;">Welcome
             <span id="name-goes-here"> </span> to checkout!</h1>
     </div>
@@ -146,10 +142,6 @@
 
         <h3 id="thankYou"></h3>
     </div>
-
-
-
-
 
 
 
@@ -187,120 +179,16 @@
     </script>
 
     <script>
-        function getCartBalance() {
-            firebase.auth().onAuthStateChanged(function (somebody) {
 
-                console.log(somebody.uid);
-                db.collection("users").doc(somebody.uid)
-                    .onSnapshot(function (snap) {
-                        console.log(snap.data())
-                        document.getElementById("total-goes-here").innerHTML = snap.data().cartBalance;
-                    })
-
-            })
-
-        }
         getCartBalance();
 
 
-        function getUserBalance() {
-            firebase.auth().onAuthStateChanged(function (somebody) {
-                console.log(somebody.uid);
-                db.collection("users").doc(somebody.uid)
-                    .onSnapshot(function (snap) {
-                        console.log(snap.data())
-                        document.getElementById("balance-goes-here").innerHTML = snap.data().currentBalance;
-                    })
-            })
 
-        }
         getUserBalance();
 
 
-        function calculate() {
-            firebase.auth().onAuthStateChanged(function (somebody) {
-
-                var cart = document.getElementById("total-goes-here").innerHTML;
 
 
-                var balance = document.getElementById("balance-goes-here").innerHTML;
-
-                var numCart = parseFloat(cart);
-                var numBalance = parseFloat(balance);
-
-                console.log(cart);
-                console.log(balance);
-
-
-                var netBalance = ( balance - cart).toFixed(2);
-                
-
-                $("#userNewBalance").text("Your New Balance: CAD$ " + netBalance);
-
-                console.log(netBalance);
-
-                db.collection("users").doc(somebody.uid).update({
-
-                    currentBalance: netBalance, //increments field!
-                    cartBalance: 0
-                })
-                $("#thankYou").text("Thank you for purchasing from JustBuyIt! Have a heavenly day and stay safe!");
-
-            })
-
-        }
-
-        // function calculate() {
-        //     firebase.auth().onAuthStateChanged(function (somebody) {
-
-        //         var num1 =1;
-        //         var num2;
-
-
-        //         var cart = db.collection("users")
-        //             .doc(somebody.uid)
-        //             .get()
-        //             .then(function (doc) {
-        //                 console.log(doc.data().cartBalance); //for debug. no other use
-        //                 num1 = doc.data().cartBalance;
-        //                 console.log(num1);
-        //                 cart = doc.data().cartBalance;
-        //             })
-
-
-
-        //         console.log(num1);
-        //         console.log(cart);
-
-        //         var balance = db.collection("users")
-        //             .doc(somebody.uid)
-        //             .get()
-        //             .then(function (doc) {
-        //                 console.log(doc.data().currentBalance); //for debug. no other use
-        //                 num2 = doc.data().currentBalance;
-        //             })
-
-
-        //         console.log(cart);
-
-        //         console.log(num2);
-
-        //         var netBalance = balance - cart;
-
-
-        //         console.log(netBalance);
-
-        //         $("#totalCalculation").text(netBalance);
-
-        //         db.collection("users").doc(somebody.uid).update({
-
-        //             // currentBalance: netBalance, //increments field!
-        //             // cartBalance: 0
-        //         })
-
-        //     })
-
-        // }
     </script>
 
 

@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application helps users purchase essentails items. They can see live inventory of products and purchase them in checkout. 
 	
 ## Technologies
 Technologies used for this project:
@@ -21,7 +21,9 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
+
 └── README.md
+
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
@@ -42,7 +44,24 @@ Tips for file naming files and folders:
 * use lowercase with no spaces
 * use dashes (not underscore) for word separation
 
-testing 123
 
-This is Jerry speaking:
-I am operating with the page main.html
+
+list of files
+checkout.html
+coffeeMaker.html
+covidupdate.html
+deliveryPolicy.html
+firebase.json
+firestore.indexes.json
+firestore.rules
+fireAidKit.html
+handSanitizer.html
+index.html
+login.html
+main.html
+masks.html
+profile.html
+README.md
+return policy.html
+storage.rules
+sotrelist.html

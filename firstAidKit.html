@@ -424,105 +424,15 @@
     </script>
 
     <script>
-        function readQuote() {
-            db.collection("stores").doc("name")
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("quote-goes-here").innerHTML = snap.data().message;
-                })
-        }
-        readQuote();
 
-        function addFirstAidKitToCart() {
-      //document.getElementById(addToCart).addEventListener("click", function (somebody) {
-      console.log("addFirstAidKitToCart was clicked!");
-      firebase.auth().onAuthStateChanged(function (somebody) {
-        db.collection("users").doc(somebody.uid).update({
 
-            cart: "First Aid Kit",
-            cartBalance: firebase.firestore.FieldValue.increment(49.49) //increments field!
 
-          })
 
-          db.collection("items")
-                    .doc("wo9y5zoXoPwt34ncxzXN")
-                    .update({
-                        firstAidKit: firebase.firestore.FieldValue.increment(-1) //increments field!
-                    })
-
-      })
-
-      var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
-    }
-
-    function showHandSanitizerInventory() {
-            db.collection("items").doc("wo9y5zoXoPwt34ncxzXN")
-                .onSnapshot(function (snap) {
-                    console.log(snap.data())
-                    document.getElementById("firstAidKitInventory").innerHTML = snap.data()
-                        .firstAidKit;
-                })
-        }
         showHandSanitizerInventory();
 
-        function sayHello() {
-            firebase.auth().onAuthStateChanged(function (somebody) {
-                if (somebody) {
-
-                    console.log(somebody.uid);
 
 
-                    db.collection("users")
-                        .doc(somebody.uid)
-                        .get()
-                        .then(function (doc) {
 
-                            console.log(doc.data().name);
-                            var n = doc.data().name;
-
-                            $("#name-goes-here").text(n);
-                        })
-                } else {
-                    // No user is signed in.
-                }
-            })
-        }
-
-        sayHello();
-
-
-        function displayCities() {
-            db.collection("cities").get()
-                .then(function (snap) {
-                    snap.forEach(function (doc) {
-                        var n = doc.data().name;
-                        console.log(n);
-                        var cityid = doc.data().code;
-                        console.log(cityid);
-                        document.getElementById(cityid).innerText = n;
-                    })
-
-                })
-        }
-        displayCities();
-
-        function writeCities() {
-            var citiesRef = db.collection("cities");
-
-            citiesRef.add({
-                code: "YVR",
-                name: "Jerry lives in Richmond",
-            });
-            citiesRef.add({
-                code: "TOK",
-                name: "Tokyo",
-            });
-            citiesRef.add({
-                code: "BJ",
-                name: "Beijing",
-            });
-        }
     </script>
 
 
