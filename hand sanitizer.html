@@ -208,7 +208,7 @@
         </h2>
         <h2>$6.49</h2>
         <br>
-        <a href="#" class="btn btn-primary">Click to Buy</a>
+        <a href="#" class="btn btn-primary" onclick="addHandSanitizerToCart()">Click to Buy</a>
 
     </div>
     <br>
@@ -321,8 +321,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebase_api_group32.js"></script>
@@ -345,6 +343,20 @@
                 })
         }
         readQuote();
+
+
+        function addHandSanitizerToCart() {
+      //document.getElementById(addToCart).addEventListener("click", function (somebody) {
+      console.log("addHandSanitizerToCart was clicked!");
+      firebase.auth().onAuthStateChanged(function (somebody) {
+        db.collection("users").doc(somebody.uid).update({
+
+            cart: "Hand Sanitizer",
+            cartBalance: firebase.firestore.FieldValue.increment(38.89) //increments field!
+
+          })
+      })
+    }
 
         function sayHello() {
             firebase.auth().onAuthStateChanged(function (somebody) {
